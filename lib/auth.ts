@@ -1,11 +1,9 @@
 import { NextAuthOptions } from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
-import { PrismaAdapter } from "@auth/prisma-adapter"
-import { db } from "@/lib/db"
-import bcrypt from "bcryptjs"
+// Removed Prisma adapter - using Firebase Auth instead
 
 export const authOptions: NextAuthOptions = {
-    adapter: PrismaAdapter(db) as any,
+    // adapter: PrismaAdapter(db) as any, // Removed - using Firebase
     session: { strategy: "jwt" },
     pages: {
         signIn: "/login",
@@ -18,15 +16,17 @@ export const authOptions: NextAuthOptions = {
                 password: { label: "Password", type: "password" }
             },
             async authorize(credentials: Record<"email" | "password", string> | undefined) {
-                if (!credentials?.email || !credentials?.password) return null
+                // NOTE: This is disabled because the app uses Firebase Auth instead
+                // The Prisma database is not being used
+                return null;
 
-                const user = await db.user.findUnique({ where: { email: credentials.email } })
-                if (!user || !user.password) return null
-
-                const isValid = await bcrypt.compare(credentials.password, user.password)
-                if (!isValid) return null
-
-                return { id: user.id, email: user.email, name: user.name, role: user.role }
+                // Legacy Prisma code (disabled):
+                // if (!credentials?.email || !credentials?.password) return null
+                // const user = await db.user.findUnique({ where: { email: credentials.email } })
+                // if (!user || !user.password) return null
+                // const isValid = await bcrypt.compare(credentials.password, user.password)
+                // if (!isValid) return null
+                // return { id: user.id, email: user.email, name: user.name, role: user.role }
             }
         })
     ],
