@@ -68,6 +68,7 @@ export function JobCard({ job }: JobCardProps) {
         if (!user) return;
 
         async function checkSavedStatus() {
+            if (!user) return; // Additional null check for TypeScript
             try {
                 const savedRef = collection(db, "saved_jobs");
                 const q = query(savedRef, where("jobId", "==", job.id), where("candidateId", "==", user.uid));
