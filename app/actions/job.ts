@@ -1,6 +1,7 @@
 'use server'
 
-import { db } from "@/lib/db"
+// DISABLED: This file uses Prisma but app now uses Firebase
+// import { db } from "@/lib/db"
 // import { JobType } from "@prisma/client"
 type JobType = "FULL_TIME" | "PART_TIME" | "CONTRACT" | "INTERNSHIP" | "REMOTE"
 import { getServerSession } from "next-auth"

@@ -1,6 +1,7 @@
 'use server'
 
-import { db } from "@/lib/db"
+// DISABLED: This file uses Prisma but app now uses Firebase
+// import { db } from "@/lib/db"
 import { getServerSession } from "next-auth"
 import { authOptions } from "@/lib/auth"
 import { revalidatePath } from "next/cache"
