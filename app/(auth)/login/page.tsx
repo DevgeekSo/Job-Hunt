@@ -25,7 +25,7 @@ export default function LoginPage() {
         try {
             await signInWithEmailAndPassword(auth, email, password);
             toast.success("Logged in successfully");
-            router.push("/dashboard");
+            router.push("/");
         } catch (error: any) {
             console.error(error);
             if (error.code === 'auth/invalid-credential') {
@@ -44,7 +44,7 @@ export default function LoginPage() {
             const provider = new GoogleAuthProvider();
             await signInWithPopup(auth, provider);
             toast.success("Logged in with Google");
-            router.push("/dashboard");
+            router.push("/");
         } catch (error) {
             console.error(error);
             toast.error("Google sign in failed");
