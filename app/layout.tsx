@@ -9,8 +9,11 @@ import { Toaster } from "sonner";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "JobHunt - Find Your Dream Job",
+  title: "JobHub - Find Your Dream Job",
   description: "The best place to find your next career move.",
+  icons: {
+    icon: "/logo.png",
+  },
 };
 
 export default function RootLayout({

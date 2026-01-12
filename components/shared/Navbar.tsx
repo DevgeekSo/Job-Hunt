@@ -43,7 +43,7 @@ export function Navbar() {
                         <SheetContent side="left" className="w-[280px] sm:w-[350px]">
                             <SheetHeader className="mb-6">
                                 <SheetTitle className="flex items-center gap-2">
-                                    <Briefcase className="h-5 w-5 text-primary" />
+                                    <img src="/logo.png" alt="JobHub" className="h-6 w-auto object-contain" />
                                     JobHub Menu
                                 </SheetTitle>
                             </SheetHeader>
@@ -54,8 +54,8 @@ export function Navbar() {
                                         href={item.href}
                                         onClick={() => setMobileMenuOpen(false)}
                                         className={`text-base font-medium px-3 py-2 rounded-md transition-colors hover:bg-gray-100 ${pathname === item.href
-                                                ? "text-primary bg-gray-50"
-                                                : "text-muted-foreground"
+                                            ? "text-primary bg-gray-50"
+                                            : "text-muted-foreground"
                                             }`}
                                     >
                                         {item.name}
@@ -77,7 +77,7 @@ export function Navbar() {
                 </div>
 
                 <Link href="/" className="font-bold text-xl md:text-2xl flex items-center gap-2 mr-4 md:mr-6">
-                    <span className="text-primary"><Briefcase className="h-5 w-5 md:h-6 md:w-6" /></span>
+                    <img src="/logo.png" alt="JobHub Logo" className="h-8 w-auto object-contain" />
                     <span className="text-foreground">JobHub</span>
                 </Link>
 
